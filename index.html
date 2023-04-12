@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section class="text-gray-600 body-font relative">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+          <h1
+            class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+          >
+            Contact Me
+          </h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            Got a question or want to collaborate on a project? <br />Let's
+            connect! Use the form below to send me a message, and I'll get back
+            to you as soon as possible. <br />
+            Looking forward to hearing from you!
+          </p>
+        </div>
+        <form action="javascript:sendmail()" method="post">
+            <div class="lg:w-1/2 md:w-2/3 mx-auto">
+          <div class="flex flex-wrap -m-2">
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="name" class="leading-7 text-sm text-gray-600"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="email" class="leading-7 text-sm text-gray-600"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <div class="relative">
+                <label for="message" class="leading-7 text-sm text-gray-600"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                  required=""></textarea>
+              </div>
+            </div>
+            <div class="p-2 w-full">
+                <a href="/greetings.html"><button onclick="sendmail();"
+               
+                class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              >
+                Submit
+              </button></a>
+              
+            </div>
+            </form>
+            <div
+              class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center"
+            >
+              <span class="inline-flex"
+                ><a
+                  class="ml-4 text-gray-500"
+                  href="#"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-20 h-20"
+                    viewBox="0 0 151.44 151.44"
+                    id="linkedin"
+                  >
+                    <g data-name="Layer 2">
+                      <g data-name="Colored icon">
+                        <circle
+                          cx="75.68"
+                          cy="75.64"
+                          r="64.59"
+                          fill="#e8e8e8"
+                        ></circle>
+                        <circle
+                          cx="75.68"
+                          cy="75.64"
+                          r="64.59"
+                          fill="#e8e8e8"
+                        ></circle>
+                        <path
+                          fill="#1872a9"
+                          d="M107.3,104.38h-14V84.17c0-5.29-2.18-8.9-7-8.9a7.06,7.06,0,0,0-6.68,4.79,9,9,0,0,0-.3,3.19v21.13H65.5s.18-35.8,0-39H79.35v6.13C80.17,68.78,84.59,65,91.66,65c8.76,0,15.64,5.62,15.64,17.72v21.71ZM51.5,60.44h-.09c-4.46,0-7.35-3-7.35-6.77s3-6.78,7.53-6.78,7.34,2.92,7.43,6.77-2.89,6.78-7.52,6.78Zm-5.85,4.89H58v39.05H45.65v-39Z"
+                          data-name="LinkedIn"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+  <script>
+    function sendmail() {
+      var name = $("#name").val();
+      var email = $("#email").val();
+      var message = $("#message").val();
+      var Body =
+        "Name: " + name + "<br>Email: " + email + "<br>Message: " + message;
+    
+    Email.send({
+                SecureToken : "bcd0d1d9-d782-409c-b096-30b02ba2b56d",
+    To : 'deskofapurv@gmail.com',
+    From : "withmew06@gmail.com",
+				Subject: "New message on contact from "+name,
+				Body: Body
+			}).then(
+				message =>{
+					
+					if(message=='OK'){
+					alert('Your mail has been send. Thank you for connecting.');
+					}
+					else{
+						console.error (message);
+						alert('There is error at sending message. ')
+						
+					}
+
+				}
+			);
+
+
+
+		}
+
+
+    </script>
+ </script>
+
+</body>
+</html>
